@@ -6,11 +6,11 @@ import org.springframework.data.mongodb.core.mapping.Document
 
 @Document
 @Data
-class Location(var externalId: String,
-               var geoLocation: GeoJsonPoint,
-               var waterBody: String,
-               var surveyStation: String,
-               var displayName: String) {
+class Location(val externalId: String,
+               val geoLocation: GeoJsonPoint,
+               val waterBody: String,
+               val surveyStation: String,
+               val displayName: String) {
     var id: String? = null
     var altitude: Float? = null
 }
