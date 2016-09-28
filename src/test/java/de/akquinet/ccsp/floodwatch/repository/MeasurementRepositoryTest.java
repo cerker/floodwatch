@@ -31,8 +31,8 @@ public class MeasurementRepositoryTest {
 
     @Test
     public void persistsMeasurement() throws Exception {
-        Location location = locationRepository.save(LocationMother.create());
-        MeasurementImport measurementImport = importRepository.save(importRepository.save(MeasurementImportMother.create()));
+        Location location = locationRepository.save(LocationMother.INSTANCE.create());
+        MeasurementImport measurementImport = importRepository.save(importRepository.save(MeasurementImportMother.INSTANCE.create()));
         Measurement measurement = MeasurementMother.create(location, measurementImport);
         repository.save(measurement);
 

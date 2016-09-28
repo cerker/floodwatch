@@ -21,7 +21,7 @@ public class MeasurementImportRepositoryTest {
 
     @Test
     public void findsImportByTimeOfCreation() {
-        MeasurementImport measurementImport = MeasurementImportMother.create();
+        MeasurementImport measurementImport = MeasurementImportMother.INSTANCE.create();
         repository.save(measurementImport);
 
         MeasurementImport measurementImportFound = repository.findByTimeOfCreation(measurementImport.getTimeOfCreation());
@@ -31,7 +31,7 @@ public class MeasurementImportRepositoryTest {
 
     @Test
     public void findsNoImportByTimeOfCreationWhenItDoesNotExist() {
-        repository.save(MeasurementImportMother.create());
+        repository.save(MeasurementImportMother.INSTANCE.create());
 
         MeasurementImport measurementImport = repository.findByTimeOfCreation(new Date());
 

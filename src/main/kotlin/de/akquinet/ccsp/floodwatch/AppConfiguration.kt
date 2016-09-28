@@ -11,7 +11,7 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 open class AppConfiguration : AbstractMongoConfiguration() {
 
     override fun getDatabaseName(): String {
-        return "e-store"
+        return "floodwatch"
     }
 
     @Throws(Exception::class)

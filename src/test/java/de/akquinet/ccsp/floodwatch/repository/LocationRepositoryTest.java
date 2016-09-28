@@ -4,6 +4,7 @@ import de.akquinet.ccsp.floodwatch.FloodwatchApplication;
 import de.akquinet.ccsp.floodwatch.datamodel.Location;
 import de.akquinet.ccsp.floodwatch.datamodel.LocationMother;
 import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,7 @@ public class LocationRepositoryTest {
 
     @Test
     public void persistsLocation() throws Exception {
-        Location location = LocationMother.create();
+        Location location = LocationMother.INSTANCE.create();
         repository.save(location);
 
         Location locationFound = repository.findOne(location.getId());
@@ -29,6 +30,7 @@ public class LocationRepositoryTest {
     }
 
     @After
+    @Before
     public void tearDown() throws Exception {
         repository.deleteAll();
     }
