@@ -1,4 +1,4 @@
-package de.akquinet.ccsp.floodmark.datamodel;
+package de.akquinet.ccsp.floodwatch.datamodel;
 
 import java.util.Date;
 

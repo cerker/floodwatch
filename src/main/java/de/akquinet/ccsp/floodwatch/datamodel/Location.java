@@ -1,4 +1,4 @@
-package de.akquinet.ccsp.floodmark.datamodel;
+package de.akquinet.ccsp.floodwatch.datamodel;
 
 import lombok.Data;
 import org.springframework.data.mongodb.core.geo.GeoJsonPoint;

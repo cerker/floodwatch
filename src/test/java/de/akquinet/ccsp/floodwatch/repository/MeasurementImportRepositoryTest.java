@@ -1,8 +1,8 @@
-package de.akquinet.ccsp.floodmark.repository;
+package de.akquinet.ccsp.floodwatch.repository;
 
-import de.akquinet.ccsp.floodmark.FloodmarkApplication;
-import de.akquinet.ccsp.floodmark.datamodel.MeasurementImport;
-import de.akquinet.ccsp.floodmark.datamodel.MeasurementImportMother;
+import de.akquinet.ccsp.floodwatch.FloodwatchApplication;
+import de.akquinet.ccsp.floodwatch.datamodel.MeasurementImport;
+import de.akquinet.ccsp.floodwatch.datamodel.MeasurementImportMother;
 import java.util.Date;
 import org.junit.After;
 import org.junit.Test;
@@ -13,7 +13,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest(classes = FloodmarkApplication.class)
+@SpringBootTest(classes = FloodwatchApplication.class)
 public class MeasurementImportRepositoryTest {
 
     @Autowired
