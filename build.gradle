@@ -1,5 +1,4 @@
 buildscript {
-    ext.kotlin_version = '1.0.4'
     ext {
         springBootVersion = '1.4.0.RELEASE'
         kotlinVersion = '1.0.4'
@@ -13,7 +12,6 @@ buildscript {
     }
 }
 
-apply plugin: 'java'
 apply plugin: 'kotlin'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
@@ -23,21 +21,29 @@ jar {
     baseName = 'floodwatch'
     version = '0.0.1-SNAPSHOT'
 }
+
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 repositories {
     mavenCentral()
+    jcenter()
 }
 
 dependencies {
-    compile('org.jetbrains.kotlin:kotlin-stdlib:1.0.4')
+    compile("com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.8.1")
+    compile("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.8.1")
+    compile("com.fasterxml.jackson.module:jackson-module-kotlin:2.8.1")
+    compile('org.apache.camel:camel-http4:2.17.3')
     compile('org.apache.camel:camel-spring-boot-starter:2.17.3')
+    compile("org.codehaus.woodstox:woodstox-core-asl:4.4.1")
+    compile('org.jetbrains.kotlin:kotlin-stdlib:1.0.4')
     compile('org.springframework.boot:spring-boot-starter-data-mongodb')
     compile('org.springframework.boot:spring-boot-starter-hateoas')
     compile('org.springframework.boot:spring-boot-starter-jersey')
-    compileOnly "org.projectlombok:lombok:1.16.10"
     compile('org.springframework.boot:spring-boot-starter-validation')
+
+    testCompile("org.amshove.kluent:kluent:1.8")
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 sourceSets {

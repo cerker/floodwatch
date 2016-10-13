@@ -1,25 +1,19 @@
 package de.akquinet.ccsp.floodwatch
 
-import com.mongodb.Mongo
-import com.mongodb.MongoClient
+import com.fasterxml.jackson.databind.DeserializationFeature
+import com.fasterxml.jackson.dataformat.xml.XmlMapper
+import com.fasterxml.jackson.module.kotlin.KotlinModule
+import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
-import org.springframework.data.mongodb.config.AbstractMongoConfiguration
-import org.springframework.data.mongodb.repository.config.EnableMongoRepositories
+import org.springframework.context.annotation.Primary
 
 @Configuration
-@EnableMongoRepositories
-open class AppConfiguration : AbstractMongoConfiguration() {
-
-    override fun getDatabaseName(): String {
-        return "floodwatch"
-    }
-
-    @Throws(Exception::class)
-    override fun mongo(): Mongo {
-        return MongoClient()
-    }
-
-    override fun getMappingBasePackage(): String {
-        return "de.akquinet.ccsp.floodwatch.datamodel"
+open class AppConfiguration {
+    @Bean @Primary
+    open fun xmlMapperBuilder(): XmlMapper {
+        val xmlMapper = XmlMapper()
+        xmlMapper.registerModule(KotlinModule())
+        xmlMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+        return xmlMapper
     }
 }
